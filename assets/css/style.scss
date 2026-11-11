@@ -4,14 +4,19 @@
 @import "jekyll-theme-primer";
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap');
 
-/* Hides the default repository title header causing the 'b' */
-.project-name, .site-header, header, .page-header {
+/* Target the first h1 containing the standalone link/letter 'b' */
+.markdown-body > h1:first-child:has(a[href*="ponchoalv.github.io/b"]) {
+  display: none !important;
+}
+
+/* Fallback to hide any stray single-letter first header if needed */
+.markdown-body > h1:first-child {
   display: none !important;
 }
 
 body, .markdown-body {
   background-color: #121212 !important;
-  color: #9da5b4 !important; /* Dimmer body text */
+  color: #9da5b4 !important; /* Dimmer grey text matching editors */
   font-family: 'IBM Plex Mono', monospace !important;
 }
 
