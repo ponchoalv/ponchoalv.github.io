@@ -1,8 +1,5 @@
 ---
 layout: default
-title: Home
+title: Alfonso's Blog
 ---
-
-# Welcome to My Homepage
-
 {% include README.md %}
