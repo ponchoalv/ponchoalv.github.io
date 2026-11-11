@@ -1,0 +1,40 @@
+---
+---
+
+@import "jekyll-theme-primer";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* Hide the default theme header completely */
+header, .page-header, .site-header {
+  display: none !important;
+}
+
+body, .markdown-body {
+  background-color: #121212 !important;
+  color: #d4d4d4 !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+}
+
+.markdown-body {
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+    font-family: 'IBM Plex Mono', monospace !important;
+    border-bottom: none !important;
+  }
+
+  a {
+    color: #4da6ff !important;
+    text-decoration: underline;
+  }
+
+  hr {
+    background-color: #333333 !important;
+    height: 1px !important;
+    border: none !important;
+  }
+}
+
+.container-lg {
+  background-color: transparent !important;
+  max-width: 800px !important;
+}
