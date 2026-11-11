@@ -1,5 +1,6 @@
 theme: jekyll-theme-primer
-
+url: "https://ponchoalv.github.io"
+baseurl: ""
 plugins:
   - jekyll-relative-links
 
