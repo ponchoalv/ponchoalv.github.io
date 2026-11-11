@@ -4,31 +4,31 @@
 @import "jekyll-theme-primer";
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap');
 
-/* Hide the default theme header completely */
-header, .page-header, .site-header {
+/* Hides the default repository title header causing the 'b' */
+.project-name, .site-header, header, .page-header {
   display: none !important;
 }
 
 body, .markdown-body {
   background-color: #121212 !important;
-  color: #d4d4d4 !important;
+  color: #9da5b4 !important; /* Dimmer body text */
   font-family: 'IBM Plex Mono', monospace !important;
 }
 
 .markdown-body {
   h1, h2, h3, h4, h5, h6 {
-    color: #ffffff !important;
+    color: #ffffff !important; /* Bright white headers */
     font-family: 'IBM Plex Mono', monospace !important;
     border-bottom: none !important;
   }
 
   a {
-    color: #4da6ff !important;
+    color: #58a6ff !important;
     text-decoration: underline;
   }
 
   hr {
-    background-color: #333333 !important;
+    background-color: #30363d !important;
     height: 1px !important;
     border: none !important;
   }
