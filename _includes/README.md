@@ -1,4 +1,4 @@
-# Alfonso's Blogs
+# Alfonso's Blog
 
 **Welcome to my blog** 👋
 
