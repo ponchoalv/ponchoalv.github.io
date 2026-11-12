@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Notebook with a bright blue P</title>
+  <rect width="64" height="64" rx="12" fill="#121212"/>
+  <!-- Gray notebook cover and spine. -->
+  <rect x="14" y="8" width="40" height="48" rx="5" fill="#262626" stroke="#9da5b4" stroke-width="2"/>
+  <path d="M22 9v46" stroke="#555d69" stroke-width="2"/>
+  <path d="M10 18h8m-8 14h8m-8 14h8" stroke="#b8bec8" stroke-width="3" stroke-linecap="round"/>
+  <!-- Draw the letter directly so it does not depend on an installed font. -->
+  <path fill="#58a6ff" fill-rule="evenodd" d="M29 19h10c7 0 11 4 11 10s-4 10-11 10h-4v9h-6V19zm6 6v8h4c3 0 5-1 5-4s-2-4-5-4h-4z"/>
+</svg>

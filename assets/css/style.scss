@@ -4,14 +4,9 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import "jekyll-theme-primer";
 
-/* Target the first h1 containing the standalone link/letter 'b' */
-.markdown-body > h1:first-child:has(a[href*="ponchoalv.github.io/b"]) {
-  display: none !important;
-}
-
-/* Fallback to hide any stray single-letter first header if needed */
-.markdown-body > h1:first-child {
-  display: none !important;
+.site-nav {
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
 }
 
 body, .markdown-body {
