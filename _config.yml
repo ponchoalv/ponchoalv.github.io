@@ -1,8 +1,22 @@
 theme: jekyll-theme-primer
 url: "https://ponchoalv.github.io"
 baseurl: ""
+permalink: /posts/:title.html
+
 plugins:
-  - jekyll-relative-links
+ - jekyll-relative-links
+ - jekyll-titles-from-headings
+
+defaults:
+ - scope:
+     path: ""
+     type: posts
+   values:
+     layout: default
+
+titles_from_headings:
+  collections: true
+  strip_title: false
 
 relative_links:
   enabled: true
