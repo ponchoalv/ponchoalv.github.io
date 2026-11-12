@@ -37,8 +37,9 @@ jobs:
           destination: ./_site
       - name: Copy post images
         run: |
-          mkdir -p _site/posts/img
-          cp -R _posts/img/. _site/posts/img/
+          # The Jekyll Docker action creates root-owned output directories.
+          sudo mkdir -p _site/posts/img
+          sudo cp -R _posts/img/. _site/posts/img/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
