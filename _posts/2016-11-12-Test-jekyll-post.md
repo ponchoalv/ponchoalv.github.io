@@ -2,12 +2,10 @@
 
 During this little test post I will show one of the the flows that Emacs enforce and I think it stays relevant on todays agentic programming loops.
 
-> **TL;DR**
-> I will try to explain how to use `compile` command in Emacs.
-> We will learn how to move around errors `M-g M-n` or `` C-x `  `` for `next-error` and `M-g M-p` for `previous-error`.
+> **TL;DR**\
+> I will try to explain how to use `compile` command in Emacs.\
+> We will learn how to move around errors `M-g M-n` or `` C-x `  `` for `next-error` and `M-g M-p` for `previous-error`.\
 > Lastly other common usage `grip -rn 'pattern'` results jumping.
-
-
 
 ##  Vanilla Emacs flow
 
