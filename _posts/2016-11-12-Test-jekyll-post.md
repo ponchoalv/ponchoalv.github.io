@@ -155,7 +155,7 @@ The underline in the line `number:column` means that they are now able to jump t
 This would be all for this post.
 
 ---
-**PD: **Here it is the full code of the example we tried above.
+**PD:** Here it is the full code of the example we tried above.
 ```lisp
 (require 'compile)
 
