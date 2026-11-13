@@ -98,7 +98,7 @@ The key customisation variables are: `compilation-error-regexp-alist-alist` and 
 
 * **`compilation-auto-jump-to-first-error`** & **`compilation-skip-threshold`**: Control whether `compile` jumps to the first match immediately and whether `next-error` skips info (`0`) or warning (`1`) matches.
 
-The cleanest approach is a single regexp matching the `LINE:` (and optional `COLUMN:`) prefix paired with a `FILE` function that walks upward past contiguous match/context lines to read the file heading. Using `define-compilation-mode` keeps this rule isolated from standard compiler buffers:
+The cleanest approach is a single `regexp` matching the `LINE:` (and optional `COLUMN:`) prefix paired with a `FILE` function that walks upward past contiguous match/context lines to read the file heading. Using `define-compilation-mode` keeps this rule isolated from standard compiler buffers:
 
 First we look for the header (the file where we matched)
 ```lisp
@@ -146,16 +146,16 @@ And lastly we glue everything together
    'my-rg-compilation-mode))
 ```
 
-Now if try to search using `rg` in our new custom `my-rg-compilation` it will display the results like this:
+Now, searching with `rg` using the new interactive function `my-rg-compilation` will display the results like this:
 
 ![rg results with matching lines](img/screenshot-1861f302-a6ca-478e-b35a-d4de24d65a8a.png)
 
-The underline in the line `number:column` means that they are now able to jump to the source code of those results.
-
-This would be all for this post.
+The underlined `number:column`  (_5:3_) means that the `regex` we defined earlier matched and now the compile buffer is *linked* to the source code.
 
 ---
-**PD:** Here it is the full code of the example we tried above.
+
+
+**PD:** Here is the full code for a custom matcher.
 ```lisp
 (require 'compile)
 
