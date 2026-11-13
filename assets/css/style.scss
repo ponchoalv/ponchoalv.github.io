@@ -31,8 +31,11 @@ body, .markdown-body {
     -webkit-box-decoration-break: clone;
   }
 
-  /* Override Primer's light code-block and Rouge syntax palettes. */
+  /* Rouge nests pre.highlight inside div.highlight. Match Primer's
+     .markdown-body .highlight pre specificity so our later rule wins. */
+  .highlighter-rouge,
   .highlight,
+  .highlight pre,
   pre {
     background-color: #1c1f24;
     color: #c9d1d9;
