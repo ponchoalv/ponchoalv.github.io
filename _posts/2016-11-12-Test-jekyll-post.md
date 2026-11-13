@@ -23,12 +23,12 @@ Compile, `M-x compile` is the place where you can run your build commands, make 
 
 Let's create a little program to showcase this (I will use vanilla Emacs started with -Q for the demonstrations).
 
-![Screenshot](img/screenshot-bd5f5a32-c79b-4b7d-9982-5b5233aefa39.png)
+![Simple C program](img/screenshot-bd5f5a32-c79b-4b7d-9982-5b5233aefa39.png)
 
 
 Let's compile it with compile: `M-x compile RET cc main.c RET`
 
-![Screenshot](img/screenshot-f047e0d6-0369-4e77-8818-5d1da89d2e95.png)
+![Successful compilation](img/screenshot-f047e0d6-0369-4e77-8818-5d1da89d2e95.png)
 
 As you can see, we got in the `mode-line` an instant `exit [0] [0 0 0]` and in the compilation buffer `*compilation*` we got the invocation and output of the command.
 
@@ -40,15 +40,15 @@ We can also compile and run by just doing `cc main.c && ./a.out` and see the out
 
 With a little change we can make the compilation of our program to failed, changing `printf` to `brintf`.
 
-![Screenshot](img/screenshot-0b9c237c-8a64-4850-836e-b7f17f12ac1d.png)
+![Failure compile](img/screenshot-0b9c237c-8a64-4850-836e-b7f17f12ac1d.png)
 
-Once we execute the compilation command the `*compilation*` buffer is showing us the failure in the in the buffer and also in the `mode-line` where `exit [1] [1 0 2]` reads as the command failed `exit [1]` due to this errors count is the first `[1`. 
+Once we execute the compilation command the `*compilation*` buffer is showing us the failure in the in the buffer and also in the `mode-line` where `exit [1] [1 0 2]` reads as the command failed `exit [1]` due to this errors count is the first `[1`.
 
 Its time to start moving around our errors and fix them.
 
 #### How do you move around the compile errors?
 
-There are a couple of default ways to move to the `next-error` which is pointer to were your code failed, the one I mechanise first is by using the following key-binding `` C-x ` `` or `M-x next-error`, if you are a mouse person, you could also click in the error and jump straight to your code in the failing line. 
+There are a couple of default ways to move to the `next-error` which is pointer to were your code failed, the one I mechanise first is by using the following key-binding `` C-x ` `` or `M-x next-error`, if you are a mouse person, you could also click in the error and jump straight to your code in the failing line.
 
 
 You could move in both directions `M-g M-n` for `next-error` or `M-g M-p` for `previous-error` too. I found it useful if you want to jump around results of search as we are going to discuss next.
@@ -59,20 +59,20 @@ The `compile` buffer also integrate well to other tools like `grep` command outp
 
 The only thing to consider is that we need to run it with the flags `-rn` (it will run as `rgrip` / recursive grip and include in each line the filename and the line-number for the matches, needed by compile for doing the jumps).
 
-![Screenshot](img/screenshot-cfd50c09-a28c-49d0-aaa0-1d3b2e117514.png)
+![Grep results](img/screenshot-cfd50c09-a28c-49d0-aaa0-1d3b2e117514.png)
 
 ## Can I customise how `compile` works?
 
 Of course, you are in Emacs after all, you can do many changes, including the regex to use for deciding how to jump to the source code. Let's try to do it with a simple case, for example, what if I search using `rg` (`rip-grep` without any flag)
 
-![Screenshot](img/screenshot-6c1b723f-793a-49bf-ac3f-2a51efe6025a.png)
+![rg results](img/screenshot-6c1b723f-793a-49bf-ac3f-2a51efe6025a.png)
 
 
 We won't be able to jump to results.
 
 ### How we customise it
 
-The key customisation variables are: `compilation-error-regexp-alist-alist` and `compilation-error-regexp-alist` this are the core parsers: The -alist variable defines named rules, and `compilation-error-regexp-alist` activates them. Each definition has the shape 
+The key customisation variables are: `compilation-error-regexp-alist-alist` and `compilation-error-regexp-alist` this are the core parsers: The -alist variable defines named rules, and `compilation-error-regexp-alist` activates them. Each definition has the shape
 
 
 ```lisp
@@ -80,13 +80,13 @@ The key customisation variables are: `compilation-error-regexp-alist-alist` and 
 ```
 **Where:**
 
-   * **`FILE` (integer, list, `nil`, or function)**:
+   * **`FILE`** (integer, list, `nil`, or function):
         * *Integer*: Capture group index for the file path.
-        * *List `(GROUP FORMAT...)*`: Applies format strings (e.g., `(1 "%s.kt")`) until an existing file is found.
+        * *List `(GROUP FORMAT...)`*: Applies format strings (e.g., `(1 "%s.kt")`) until an existing file is found.
         * *`nil`*: Inherits the file name from the most recent match in the buffer that had one (used for grouped/multiline output).
         * *Function*: Called with point at the end of the match; must return `(FILENAME)` or `(RELATIVE-FILENAME . DIRNAME)`.
 
-* **`LINE` and `COLUMN**`: Capture group index, or a cons cell `(START . END)` for ranges.
+* **`LINE`** and **`COLUMN`**: Capture group index, or a cons cell `(START . END)` for ranges.
 
 * **`TYPE`**: `2` (or `nil`) for error, `1` for warning, `0` for info, or `(WARNING-GROUP . INFO-GROUP)`.
 
@@ -96,7 +96,7 @@ The key customisation variables are: `compilation-error-regexp-alist-alist` and 
 
 * **`define-compilation-mode`**: Creates a dedicated major mode derived from `compilation-mode` with buffer-local `compilation-error-regexp-alist`, preventing loose custom patterns from colliding with normal compiler output.
 
-* **`compilation-auto-jump-to-first-error` & `compilation-skip-threshold**`: Control whether `compile` jumps to the first match immediately and whether `next-error` skips info (`0`) or warning (`1`) matches.
+* **`compilation-auto-jump-to-first-error`** & **`compilation-skip-threshold`**: Control whether `compile` jumps to the first match immediately and whether `next-error` skips info (`0`) or warning (`1`) matches.
 
 The cleanest approach is a single regexp matching the `LINE:` (and optional `COLUMN:`) prefix paired with a `FILE` function that walks upward past contiguous match/context lines to read the file heading. Using `define-compilation-mode` keeps this rule isolated from standard compiler buffers:
 
@@ -148,7 +148,7 @@ And lastly we glue everything together
 
 Now if try to search using `rg` in our new custom `my-rg-compilation` it will display the results like this:
 
-![Screenshot](img/screenshot-1861f302-a6ca-478e-b35a-d4de24d65a8a.png)
+![rg results with matching lines](img/screenshot-1861f302-a6ca-478e-b35a-d4de24d65a8a.png)
 
 The underline in the line `number:column` means that they are now able to jump to the source code of those results.
 
