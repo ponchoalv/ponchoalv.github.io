@@ -4,7 +4,7 @@ During this little post I will show one of the workflows I use with Emacs.
 
 > **TL;DR**\
 > I will try to explain how I use `compile` command in Emacs.\
-> Hot to move around errors `M-g M-n` or `` C-x `  `` for `next-error` and `M-g M-p` for `previous-error`.\
+> Hot to move around errors `M-g M-n` or `` C-x ` `` for `next-error` and `M-g M-p` for `previous-error`.\
 > Lastly other common usage `grip -rn 'pattern'` results jumping.
 
 ##  My Emacs workflow for writing code
@@ -150,7 +150,7 @@ Now, searching with `rg` using the new interactive function `my-rg-compilation` 
 
 ![rg results with matching lines](img/screenshot-1861f302-a6ca-478e-b35a-d4de24d65a8a.png)
 
-The underlined `number:column`  (_5:3_) means that the `regex` we defined earlier matched and now the compile buffer is *linked* to the source code.
+The underlined `number:column` (<u>5:3</u>) means that the `regex` we defined earlier matched and now the compile buffer is *linked* to the source code.
 
 ---
 
