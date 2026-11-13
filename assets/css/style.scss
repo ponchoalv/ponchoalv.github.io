@@ -31,6 +31,69 @@ body, .markdown-body {
     -webkit-box-decoration-break: clone;
   }
 
+  /* Override Primer's light code-block and Rouge syntax palettes. */
+  .highlight,
+  pre {
+    background-color: #1c1f24;
+    color: #c9d1d9;
+    border-radius: 6px;
+  }
+
+  pre code,
+  pre tt {
+    background-color: transparent;
+    color: inherit;
+  }
+
+  .highlight {
+    .c, .cd, .cm, .c1, .ch, .cp, .cpf, .cs {
+      color: #929cab;
+    }
+
+    .k, .kc, .kd, .kn, .kp, .kr, .kt, .ow {
+      color: #c792ea;
+    }
+
+    .s, .s1, .s2, .sa, .sb, .sc, .sd, .se, .sh, .si, .sr, .ss, .sx {
+      color: #a5d6a7;
+    }
+
+    .m, .mb, .mf, .mh, .mi, .il, .mo, .mx, .l, .ld {
+      color: #e5b980;
+    }
+
+    .na, .nb, .bp, .nc, .nd, .ne, .nf, .fm, .nn, .nt {
+      color: #82aaff;
+    }
+
+    .no, .nv, .vc, .vg, .vi, .vm {
+      color: #89dceb;
+    }
+
+    .n, .nx, .o, .p, .w {
+      color: #c9d1d9;
+    }
+
+    .err, .gr, .gt {
+      color: #f5a3a3;
+      background-color: transparent;
+    }
+
+    .gd {
+      color: #f5a3a3;
+      background-color: #3b2428;
+    }
+
+    .gi {
+      color: #a5d6a7;
+      background-color: #20352a;
+    }
+
+    .gh, .gu, .gp {
+      color: #82aaff;
+    }
+  }
+
   blockquote {
     color: #9298a3;
     font-style: italic;
