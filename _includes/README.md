@@ -12,4 +12,4 @@ If you would like to get in touch, please reach out on [linkedin](https://www.li
 
 ---
 
-Stay tune, soon will write about many things, like emacs, encryption, programming and random stuff too.
+Stay tuned, soon will write about many things, like emacs, encryption, programming and random stuff too.
